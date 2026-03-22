@@ -1,0 +1,267 @@
+/* ===================================
+   SEED CARD BUYBOX - 100% escopado
+   Não altera outros cards ou estilos globais.
+   =================================== */
+
+.seed-card-buybox.hidden {
+    display: none;
+}
+
+/* Título e descrição (hierarquia) */
+.seed-card-buybox .seed-card-buybox__title {
+    font-size: var(--fs-2xl);
+    font-weight: 800;
+    color: var(--color-dark);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.3;
+}
+
+.seed-card-buybox .seed-card-buybox__description {
+    font-size: var(--fs-base);
+    color: var(--color-dark-gray);
+    line-height: 1.7;
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Bloco de quantidade */
+.seed-card-buybox__quantity {
+    margin-bottom: var(--spacing-lg);
+    padding-top: var(--spacing-md);
+}
+
+.seed-card-buybox__quantity-label {
+    display: block;
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: var(--color-dark);
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Chips (radio group) */
+.seed-card-buybox__chips {
+    display: grid;
+    /* Padrão: 1 coluna para cards estreitos (evita “botões” espremidos). */
+    grid-template-columns: 1fr;
+    gap: 10px;
+    align-items: stretch;
+}
+
+/* Sempre 1 card por linha em todas as telas (layout como na marcação em vermelho) */
+
+/* radios removidos: opções viraram links */
+
+.seed-card-buybox__chip {
+    position: relative;
+    overflow: hidden;
+    border-radius: 14px;
+    border: 1px solid rgba(74, 124, 28, 0.25);
+    background: linear-gradient(180deg, rgba(29, 58, 13, 0.95) 0%, rgba(15, 36, 7, 0.95) 100%);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.16);
+    padding: 10px 12px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, filter 0.2s ease;
+    min-height: 92px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    color: rgba(255, 255, 255, 0.92);
+    text-decoration: none;
+}
+
+/* Reforço de escopo (evita overrides externos) */
+.seed-card-buybox[data-component="seed-buybox"] .seed-card-buybox__chip,
+.seed-card-buybox[data-component="seed-buybox"] .seed-card-buybox__opt-top,
+.seed-card-buybox[data-component="seed-buybox"] .seed-card-buybox__opt-prices,
+.seed-card-buybox[data-component="seed-buybox"] .seed-card-buybox__opt-old,
+.seed-card-buybox[data-component="seed-buybox"] .seed-card-buybox__opt-price,
+.seed-card-buybox[data-component="seed-buybox"] .seed-card-buybox__opt-name,
+.seed-card-buybox[data-component="seed-buybox"] .seed-card-buybox__opt-tag {
+    /* somente aumenta especificidade, sem mudar layout */
+}
+
+.seed-card-buybox__chip::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(500px 120px at 40% 0%, rgba(94, 153, 38, 0.22), transparent 60%);
+    opacity: 0.9;
+    pointer-events: none;
+}
+
+.seed-card-buybox__opt-top,
+.seed-card-buybox__opt-prices {
+    position: relative;
+    z-index: 1;
+}
+
+.seed-card-buybox__opt-top {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    gap: var(--spacing-sm);
+}
+
+.seed-card-buybox__opt-name {
+    color: rgba(255, 255, 255, 0.92);
+    font-weight: 700;
+    font-size: 0.85rem;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    min-width: 0;
+    width: 100%;
+    word-break: normal;
+    white-space: normal;
+    overflow-wrap: break-word;
+}
+
+.seed-card-buybox__opt-tag {
+    justify-self: end;
+    padding: 0.25rem 0.55rem;
+    border-radius: var(--radius-full);
+    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-light) 100%);
+    color: var(--color-white);
+    font-size: 0.6875rem;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+    line-height: 1;
+    box-shadow: 0 6px 14px rgba(74, 124, 28, 0.35);
+    white-space: nowrap;
+}
+
+.seed-card-buybox__opt-price {
+    color: rgba(255, 255, 255, 0.98);
+    font-size: 0.95rem;
+    font-weight: 800;
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+    flex: 0 0 auto;
+}
+
+.seed-card-buybox__opt-prices {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--spacing-sm);
+    font-variant-numeric: tabular-nums;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    min-width: 0;
+}
+
+.seed-card-buybox__opt-old {
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 0.75rem;
+    text-decoration: line-through;
+    white-space: nowrap;
+    flex: 0 0 auto;
+}
+
+.seed-card-buybox__chip:hover {
+    transform: translateY(-2px);
+    border-color: rgba(94, 153, 38, 0.65);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.22);
+    filter: brightness(1.03);
+}
+
+.seed-card-buybox__chip:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(94, 153, 38, 0.35), 0 14px 28px rgba(0, 0, 0, 0.22);
+}
+
+/* (seleção por rádio removida: agora cada card vai direto ao checkout) */
+
+/* Divisor e área do CTA */
+.seed-card-buybox__cta-wrap {
+    margin-top: auto;
+    padding-top: var(--spacing-lg);
+}
+
+.seed-card-buybox__divider {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-light-gray) 10%, var(--color-light-gray) 90%, transparent);
+    margin-bottom: var(--spacing-lg);
+}
+
+/* CTA principal */
+.seed-card-buybox__cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 3.25rem;
+    padding: var(--spacing-md) var(--spacing-xl);
+    background: linear-gradient(135deg, #1d3a0d 0%, #2d5016 50%, #3d6b1f 100%);
+    color: var(--color-white);
+    border: none;
+    border-radius: var(--radius-lg);
+    font-size: var(--fs-lg);
+    font-weight: 700;
+    text-align: center;
+    box-shadow: 0 4px 14px rgba(45, 80, 22, 0.35);
+    transition: box-shadow 0.25s ease, transform 0.2s ease, filter 0.2s ease;
+    cursor: pointer;
+}
+
+.seed-card-buybox__cta:hover:not(.seed-card-buybox__cta--disabled):not(.seed-card-buybox__cta--loading) {
+    box-shadow: 0 8px 24px rgba(45, 80, 22, 0.45);
+    transform: translateY(-2px);
+    filter: brightness(1.05);
+}
+
+.seed-card-buybox__cta:active:not(.seed-card-buybox__cta--disabled):not(.seed-card-buybox__cta--loading) {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(45, 80, 22, 0.3);
+}
+
+.seed-card-buybox__cta--disabled {
+    background: var(--color-light-gray);
+    color: var(--color-gray);
+    cursor: not-allowed;
+    box-shadow: none;
+    pointer-events: none;
+}
+
+.seed-card-buybox__cta--loading .seed-card-buybox__cta-text {
+    visibility: hidden;
+    position: absolute;
+}
+
+.seed-card-buybox__cta--loading .seed-card-buybox__cta-loading {
+    visibility: visible;
+}
+
+.seed-card-buybox__cta .seed-card-buybox__cta-loading {
+    visibility: hidden;
+    position: absolute;
+}
+
+/* Mobile: scroll horizontal com snap (alternativa premium) */
+@media (max-width: 480px) {
+    .seed-card-buybox__chips {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xs);
+    }
+
+    .seed-card-buybox__chip {
+        min-height: 96px;
+        padding: var(--spacing-sm);
+    }
+
+    .seed-card-buybox__opt-name {
+        font-size: 0.85rem;
+    }
+
+    .seed-card-buybox__opt-price {
+        font-size: 1rem;
+    }
+
+    .seed-card-buybox__cta {
+        min-height: 3rem;
+        font-size: var(--fs-base);
+    }
+}
+
+/* Visual das variações em produtos.html fica em css/produtos.css
+   e é 100% escopado em .variant-grid. */

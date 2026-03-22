@@ -1,0 +1,13 @@
+{
+  "name": "agromoringa",
+  "version": "1.0.0",
+  "description": "Agromoringa - Site estático",
+  "scripts": {
+    "dev": "npx http-server . -p 3000 -o",
+    "start": "npx http-server . -p 3000 -o"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
+

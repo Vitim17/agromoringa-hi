@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="hi">
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '3345276188983194');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=3345276188983194&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>चेकआउट — एग्रोमोरिंगा</title>
+    <meta name="description" content="एग्रोमोरिंगा पर अपनी खरीद पूरी करें। मोरिंगा ओलेइफेरा बीज और उत्पाद।">
+    <meta name="keywords" content="checkout, मोरिंगा, बीज">
+    <link rel="canonical" href="https://agromoringa.com.br/hi/checkout.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://agromoringa.com.br/hi/checkout.html">
+    <meta property="og:title" content="चेकआउट — एग्रोमोरिंगा">
+    <meta property="og:description" content="एग्रोमोरिंगा पर अपनी खरीद पूरी करें।">
+    <meta property="og:locale" content="hi_IN">
+
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body { font-family: 'Noto Sans Devanagari', 'Inter', system-ui, sans-serif; }
+        .checkout-page { padding: calc(80px + var(--spacing-xl)) 0 var(--spacing-3xl); background: var(--color-light); }
+        .checkout-card {
+            max-width: 860px; margin: 0 auto; background: var(--color-white);
+            border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); overflow: hidden;
+        }
+        .checkout-hero {
+            background: var(--gradient-primary); color: var(--color-white);
+            padding: var(--spacing-xl);
+        }
+        .checkout-hero h1 { color: var(--color-white); font-size: var(--fs-3xl); margin-bottom: var(--spacing-xs); }
+        .checkout-hero p { opacity: 0.92; }
+        .checkout-body { padding: var(--spacing-xl); display: grid; gap: var(--spacing-lg); }
+        .checkout-summary {
+            border: 1px solid var(--color-light-gray); border-radius: var(--radius-lg);
+            padding: var(--spacing-lg); display: grid; gap: var(--spacing-sm);
+        }
+        .checkout-line { display:flex; align-items: baseline; justify-content: space-between; gap: var(--spacing-md); }
+        .checkout-label { color: var(--color-dark-gray); font-weight: 600; }
+        .checkout-value { color: var(--color-dark); font-weight: 700; }
+        .checkout-price { font-variant-numeric: tabular-nums; white-space: nowrap; }
+        .checkout-old { color: var(--color-gray); text-decoration: line-through; font-weight: 600; }
+        .checkout-total { font-size: var(--fs-2xl); font-weight: 800; color: var(--color-primary); }
+        .checkout-actions { display:flex; gap: var(--spacing-sm); flex-wrap: wrap; }
+        .checkout-actions .btn { flex: 1; min-width: 220px; justify-content: center; }
+        @media (max-width: 520px) {
+            .checkout-hero { padding: var(--spacing-lg); }
+            .checkout-body { padding: var(--spacing-lg); }
+            .checkout-actions { flex-direction: column; }
+            .checkout-actions .btn { min-width: 0; width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <section class="checkout-page">
+        <div class="container">
+            <div class="checkout-card">
+                <div class="checkout-hero">
+                    <h1>चेकआउट</h1>
+                    <p>अपना विकल्प पुष्टि करें और खरीद पूरी करें।</p>
+                </div>
+                <div class="checkout-body">
+                    <div class="checkout-summary" id="checkout-summary">
+                        <div class="checkout-line">
+                            <span class="checkout-label">उत्पाद</span>
+                            <span class="checkout-value" id="co-product">—</span>
+                        </div>
+                        <div class="checkout-line">
+                            <span class="checkout-label">विकल्प</span>
+                            <span class="checkout-value" id="co-item">—</span>
+                        </div>
+                        <div class="checkout-line">
+                            <span class="checkout-label">पहले</span>
+                            <span class="checkout-value checkout-price checkout-old" id="co-old">—</span>
+                        </div>
+                        <div class="checkout-line">
+                            <span class="checkout-label">अब</span>
+                            <span class="checkout-value checkout-price checkout-total" id="co-price">—</span>
+                        </div>
+                    </div>
+
+                    <div class="checkout-actions">
+                        <a class="btn btn--outline" href="produtos.html">वापस</a>
+                        <a class="btn btn--primary" id="co-whatsapp" href="#" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-whatsapp"></i> व्हाट्सऐप पर पूर्ण करें
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        (function () {
+            const params = new URLSearchParams(window.location.search);
+            const product = params.get('product') || '';
+            const item = params.get('item') || '';
+            const oldCents = Number(params.get('old_cents') || '0');
+            const priceCents = Number(params.get('price_cents') || '0');
+
+            const fmt = (cents) => {
+                const v = (cents || 0) / 100;
+                const brl = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(v);
+                return brl + ' BRL';
+            };
+
+            document.getElementById('co-product').textContent = product || '—';
+            document.getElementById('co-item').textContent = item || '—';
+
+            const oldEl = document.getElementById('co-old');
+            const priceEl = document.getElementById('co-price');
+            if (oldCents > 0) oldEl.textContent = fmt(oldCents); else oldEl.textContent = '—';
+            if (priceCents > 0) priceEl.textContent = fmt(priceCents); else priceEl.textContent = '—';
+
+            const phone = '5589981497979';
+            const base = 'मुझे उद्धरण चाहिए।';
+            const msg =
+                base +
+                (product ? '\n\nउत्पाद: ' + product : '') +
+                (item ? '\nविकल्प: ' + item : '') +
+                (priceCents ? '\nमूल्य: ' + fmt(priceCents) : '');
+
+            const wa = document.getElementById('co-whatsapp');
+            wa.href = 'https://wa.me/' + phone + '?text=' + encodeURIComponent(msg);
+        })();
+    </script>
+</body>
+</html>

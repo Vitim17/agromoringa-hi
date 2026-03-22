@@ -1,0 +1,143 @@
+/* ===================================
+   PELLETS BUYBOX - 100% escopado
+   Afeta somente o card de Pellets.
+   =================================== */
+
+.pellets-card-buybox {
+    margin-top: var(--spacing-lg);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--color-light-gray);
+}
+
+.pellets-card-buybox__options {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: var(--spacing-lg);
+}
+
+.pellets-card-buybox__option {
+    position: relative;
+    overflow: hidden;
+    border-radius: 14px;
+    border: 1px solid rgba(74, 124, 28, 0.25);
+    background: linear-gradient(180deg, rgba(29, 58, 13, 0.95) 0%, rgba(15, 36, 7, 0.95) 100%);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.16);
+    padding: 10px 12px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, filter 0.2s ease;
+    min-height: 92px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    text-decoration: none;
+}
+
+.pellets-card-buybox__option::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(500px 120px at 40% 0%, rgba(94, 153, 38, 0.22), transparent 60%);
+    opacity: 0.9;
+    pointer-events: none;
+}
+
+.pellets-card-buybox__top,
+.pellets-card-buybox__prices {
+    position: relative;
+    z-index: 1;
+}
+
+.pellets-card-buybox__top {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    gap: var(--spacing-sm);
+}
+
+.pellets-card-buybox__name {
+    color: rgba(255, 255, 255, 0.92);
+    font-weight: 700;
+    font-size: 0.85rem;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    min-width: 0;
+    width: 100%;
+    word-break: normal;
+    white-space: normal;
+    overflow-wrap: break-word;
+}
+
+.pellets-card-buybox__tag {
+    justify-self: end;
+    padding: 0.25rem 0.55rem;
+    border-radius: var(--radius-full);
+    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-light) 100%);
+    color: var(--color-white);
+    font-size: 0.6875rem;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+    line-height: 1;
+    box-shadow: 0 6px 14px rgba(74, 124, 28, 0.35);
+    white-space: nowrap;
+}
+
+.pellets-card-buybox__prices {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--spacing-sm);
+    font-variant-numeric: tabular-nums;
+}
+
+.pellets-card-buybox__old {
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 0.75rem;
+    text-decoration: line-through;
+    white-space: nowrap;
+}
+
+.pellets-card-buybox__price {
+    color: rgba(255, 255, 255, 0.98);
+    font-size: 0.95rem;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.pellets-card-buybox__option:hover {
+    transform: translateY(-2px);
+    border-color: rgba(94, 153, 38, 0.65);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.22);
+    filter: brightness(1.03);
+}
+
+.pellets-card-buybox__option:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(94, 153, 38, 0.35), 0 14px 28px rgba(0, 0, 0, 0.22);
+}
+
+.pellets-card-buybox__cta {
+    position: relative;
+}
+
+@media (max-width: 480px) {
+    .pellets-card-buybox__options {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xs);
+    }
+
+    .pellets-card-buybox__option {
+        min-height: 96px;
+        padding: var(--spacing-sm);
+    }
+
+    .pellets-card-buybox__name {
+        font-size: 0.85rem;
+    }
+
+    .pellets-card-buybox__price {
+        font-size: 1rem;
+    }
+}
+
