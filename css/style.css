@@ -230,18 +230,6 @@ ul {
     gap: var(--spacing-md);
 }
 
-.nav__lang {
-    font-weight: 600;
-    font-size: 0.875rem;
-    color: var(--color-primary);
-    text-decoration: none;
-    white-space: nowrap;
-}
-
-.nav__lang:hover {
-    text-decoration: underline;
-}
-
 .nav__toggle,
 .nav__close {
     display: none;
